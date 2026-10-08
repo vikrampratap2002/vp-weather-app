@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import Header from "../src/components/Header"
+import Search from "../src/components/Search"
+import WeatherCard from "../src/components/WeatherCard"
+import Footer from "../src/components/Footer"
+import '../src/App.css'
 
-function App() {
+const App = () => {
+
+  const [weatherDetails, setWeatherDetails] = useState(null);
+  console.log(weatherDetails);
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='app'>
+      <div className='app-container'>
+      <Header/>
+        <Search setWeatherDetails={setWeatherDetails}/>
+      {weatherDetails && <WeatherCard weatherDetails={weatherDetails}/>}
+      <Footer />
+       </div>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
