@@ -10,7 +10,7 @@ const Search = ({setWeatherDetails}) => {
   };
 
   const handleKeyDown = async (e) => {
-    if (e.key != "Enter") return;
+    if (e.key !== "Enter") return;
     const option = {
       method: "GET",
       url: "https://weatherapi-com.p.rapidapi.com/current.json",
